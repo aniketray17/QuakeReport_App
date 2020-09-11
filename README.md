@@ -5,7 +5,5 @@ This android app is designed for giving the information about the past earthquak
 
 <h1> Have a look at the images linked below: <h1><br>
   
-  <img src = "QuakeReport1.jpg" width = "300" height = "550" /><br>
-  
-  
+  <img src = "QuakeReport1.jpg" width = "300" height = "550" />  
   <img src = "QuakeReport2.jpg" width = "300" height = "550" />
