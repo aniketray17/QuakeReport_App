@@ -42,13 +42,13 @@ public final class QueryUtils {
         // Create an empty ArrayList that we can start adding earthquakes to
         List<Earthquake> earthquakes = new ArrayList<>();
 
-        // Try to parse the JSON respnose String. If there's a problem with the way the JSON
+        // Try to parse the JSON response String. If there's a problem with the way the JSON
         // is formatted, a JSONException exception object will be thrown.
         // Catch the exception so the app doesn't crash, and print the error message to the logs.
         try {
 
-            // TODO: Parse the response given by the SAMPLE_JSON_RESPONSE string and
-            JSONObject baseJsonResponse = new JSONObject(SAMPLE_JSON_RESPONSE);
+            // TODO: Parse the response given by the JSON_RESPONSE string and
+            JSONObject baseJsonResponse = new JSONObject(earthquakeJSON);
             JSONArray earthquakeArray = baseJsonResponse.getJSONArray("features");
             for(int i = 0;i < earthquakeArray.length();i++)
             {
