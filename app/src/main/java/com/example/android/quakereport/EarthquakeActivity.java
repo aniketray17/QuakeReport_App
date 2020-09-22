@@ -8,6 +8,7 @@ import android.app.LoaderManager.LoaderCallbacks;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -34,6 +35,7 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.i(LOG_TAG,"TEST : Earthquake activity onCreate() called");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.earthquake_activity);
 
@@ -71,12 +73,15 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
         // Initialize the loader. Pass in the int ID constant defined above and pass in null for
         // the bundle. Pass in this activity for the LoaderCallbacks parameter (which is valid
         // because this activity implements the LoaderCallbacks interface).
+        Log.i(LOG_TAG,"TEST : calling initloader()...");
         loaderManager.initLoader(EARTHQUAKE_LOADER_ID, null, this);
     }
 
     @Override
     public Loader<List<Earthquake>> onCreateLoader(int i,Bundle bundle)
     {
+        //create a loader for the given URL
+        Log.i(LOG_TAG,"onCreateLoader called ...");
         return new EarthquakeLoader(this,USGS_REQUEST_URL);
     }
 
@@ -90,6 +95,7 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
         @Override
         public void onLoadFinished(Loader<List<Earthquake>> loader,List<Earthquake> earthquakes) {
             // Clear the adapter of previous earthquake data
+            Log.i(LOG_TAG,"onLoadFinished called ...");
             mAdapter.clear();
 
             // If there is a valid list of {@link Earthquake}s, then add them to the adapter's
@@ -102,6 +108,7 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
         public void onLoaderReset(Loader<List<Earthquake>> loader)
         {
             // Loader reset, so we can clear out our existing data.
+            Log.i(LOG_TAG,"onLoaderReset called ...");
             mAdapter.clear();
         }
 }
